@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
+use App\Models\Photo;
 use Carbon\Carbon;
 
 class User extends Authenticatable
@@ -51,5 +52,11 @@ class User extends Authenticatable
     public function role()
     {
        return $this->belongsTo('App\Models\Role');
+    }
+
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Models\Photo');
     }
 }
