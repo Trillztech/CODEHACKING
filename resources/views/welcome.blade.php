@@ -152,5 +152,13 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div id="hero" class="d-flex flex-column justify-content-center align-items-center">
+            <div class="hero-container">
+                <h1 class="h3 text-capitalize">hello</h1>
+                <p>We Are The <span class="typed" data-typed-items="Best, Ultimate"></span></p>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

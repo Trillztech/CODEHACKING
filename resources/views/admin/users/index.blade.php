@@ -7,6 +7,7 @@
       <thead>
         <tr>
           <th>Id</th>
+          <th>Profile</th>
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
@@ -22,7 +23,8 @@
         
         <tr>
           <td>{{$user->id}}</td>
-          <td>{{$user->name}}</td>
+          <td><a href="{{route('users.edit', $user->id)}}"><img src="{{$user->photo ? $user->photo->file: 'http://placeholder.it/400x400'}}" alt="file not found" width="40px"></a></td>
+          <td><a href="{{route('users.edit', $user->id)}}">{{$user->name}}</a></td>
           <td>{{$user->email}}</td>
           <td>{{ $user->role->name }}</td>
           <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
