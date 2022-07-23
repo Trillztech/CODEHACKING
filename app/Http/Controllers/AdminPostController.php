@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Photo;
 use App\Models\User;
+use App\Models\Category;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -30,7 +31,8 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all()->pluck('name', 'id');
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
