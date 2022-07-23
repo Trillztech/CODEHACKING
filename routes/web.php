@@ -21,9 +21,20 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+
+Route::group(['middleware'=>'admin'], function(){
+
 Route::resource('admin/users', App\Http\Controllers\AdminUserController::class);
 
+Route::resource('admin/posts', App\Http\Controllers\AdminPostController::class);
 
+ 
 Route::get('/admin', function () {
     return view('admin.index');
+});
+
+
+
 });

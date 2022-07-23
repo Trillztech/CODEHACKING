@@ -3,6 +3,12 @@
     
 <div class="container-fluid bg-inherit text-gray text-center text-capitalize">
     <h1 class="h2">My user Page</h1>
+
+    @if (Session::has('deleted_user'))
+        <p class="bg-danger">{{session('deleted_user')}}</p>
+        
+    @endif
+
     <table class="table table-striped  text-left">
       <thead>
         <tr>
