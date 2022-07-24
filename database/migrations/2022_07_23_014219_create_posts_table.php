@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('posts');
         Schema::create('posts', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->integer('category_id')->unsigned()->index()->nullable();
@@ -21,6 +23,11 @@ return new class extends Migration
             $table->string('title');
             $table->text('body');
             $table->timestamps();
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
+
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

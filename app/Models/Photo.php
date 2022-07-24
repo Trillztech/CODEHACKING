@@ -17,4 +17,9 @@ class Photo extends Model
     {
         return $this-> dir . $photo;
     }
+
+    // public function post()
+    // {
+    //     return $this->belongsTo('App\Models\Post');
+    // }
 }

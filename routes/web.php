@@ -30,6 +30,8 @@ Route::resource('admin/users', App\Http\Controllers\AdminUserController::class);
 
 Route::resource('admin/posts', App\Http\Controllers\AdminPostController::class);
 
+Route::resource('admin/categories', App\Http\Controllers\AdminCategoriesController::class);
+
  
 Route::get('/admin', function () {
     return view('admin.index');
