@@ -22,7 +22,7 @@
 
 
 <div class="form-group">
-    {!!Form::submit('Submit',['class'=>'btn btn-primary'])!!}
+    {!!Form::submit('Create Category',['class'=>'btn btn-primary'])!!}
 </div>
 @error('category_id')
   <span class="invalid-feedback text-danger" role="alert">
@@ -34,26 +34,26 @@
 
 
 
-<div class="col-sm-5">
+<div class="col-sm-7">
     
 <table class="table table-striped  text-left">
     <thead>
       <tr>
         <th>S/N</th>
         <th>Name</th>
-        <th>Created At</th>
+        <th> Created At </th>
         <th>Updated At</th>
       </tr>
     </thead>
 
     
-     @foreach ($Categories as $category)
+     @foreach ($categories as $category)
             
    <tbody>
     
       <tr>
         <td>{{$category->id}}</td>
-        <td>{{$category->name}}</td>
+        <td><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
         <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no Dates found'}}</td>
         <td>{{$category->updated_at ? $category->created_at->diffForHumans() : 'no Dates found'}}</td>
       </tr>

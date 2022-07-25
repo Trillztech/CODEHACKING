@@ -4,7 +4,8 @@
 
 <h2>Edit Categories</h2>
     
-{!! Form::model($category['method'=>'PATCH', 'action'=>'App\Http\Controllers\AdminCategoriesController@update', $category->id]) !!}
+
+{!! Form::model($category, ['method'=>'PATCH', 'action'=>['App\Http\Controllers\AdminCategoriesController@update', $category->id]]) !!}
 @csrf
 
 <div class="form-group">
@@ -19,12 +20,19 @@
 
 
 <div class="form-group">
-    {!!Form::submit('Submit',['class'=>'btn btn-primary'])!!}
+    {!!Form::submit('Edit Category',['class'=>'btn btn-primary'])!!}
 </div>
-@error('category_id')
-  <span class="invalid-feedback text-danger" role="alert">
-       <strong>{{ $message }}</strong>
-  </span>
-@enderror
+
+{!! Form::close() !!}
+
+
+{!! Form::model($category, ['method'=>'DELETE', 'action'=>['App\Http\Controllers\AdminCategoriesController@destroy', $category->id]]) !!}
+
+<div class="form-group">
+    {!!Form::submit('Delete Category',['class'=>'btn btn-danger'])!!}
+</div>
+
+{!! Form::close() !!}
+
 
 @endsection
